@@ -4,7 +4,9 @@ import whatsapp from 'whatsapp-web.js';
 import { getTranslatedFact } from './facts.js';
 import { getTodayMessage } from './messages.js';
 import { getWeatherMessage } from './weather.js';
-import dotenv from 'dotenv';dotenv.config();
+import dotenv from 'dotenv'; dotenv.config();
+
+console.log('Iniciando o bot...')
 
 const { Client, LocalAuth } = whatsapp;
 const remotePath = 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html';
@@ -20,7 +22,14 @@ async function send(text) {
   selectedChat.sendMessage(text);
 };
 
-client.on('ready', async() => {
+async function getMessageAndSendNow() {
+  const message = getTodayMessage();
+  const fact = await getTranslatedFact();
+  const weather = await getWeatherMessage();
+  send(`Curiosidade do dia: ${fact} \n\n ${weather} \n\n ${message}`);
+}
+
+client.on('ready', async () => {
   console.log('Client is ready!');
   cron.schedule('0 6 * * *', async () => {
     const message = getTodayMessage();
@@ -33,6 +42,8 @@ client.on('ready', async() => {
 client.on('message_create', (msg) => {
   if (msg.body === '!testapi')
     msg.reply('ok')
+  if (msg.body === '!sendnow5530')
+    getMessageAndSendNow()
 })
 
 client.on('qr', qr => {
