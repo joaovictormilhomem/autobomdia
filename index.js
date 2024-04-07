@@ -16,7 +16,7 @@ const client = new Client({
 });
 
 async function send(text, number) {
-  console.log('Enviando mensagem')
+  console.log('Enviando mensagem para ' + number || process.env.RECEIVER_NUMBER)
   const chatId = (number || process.env.RECEIVER_NUMBER) + '@c.us';
   const selectedChat = await client.getChatById(chatId);
   if (!selectedChat) console.log('Chat não encontrado!');
@@ -51,13 +51,18 @@ client.on('ready', async () => {
 });
 
 client.on('message_create', (msg) => {
-  console.log('Mensagem recebida: ' + msg.body)
-  if (msg.body === '!testapi')
+  if (msg.body === '!testapi') {
+    console.log('Mensagem de teste recebida')
     msg.reply('ok')
-  if (msg.body === '!sendnow5530')
+  }
+  if (msg.body === '!sendnow5530') {
+    console.log('Mensagem de envio imediato recebida')
     getMessageAndSendNow()
-  if (msg.body === '!sendnowforme5530')
+  }
+  if (msg.body === '!sendnowforme5530') {
+    console.log('Mensagem de envio imediato para o meu número recebida')
     getMessageAndSendNowForMe()
+  }
 })
 
 client.on('qr', qr => {
