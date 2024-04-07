@@ -16,6 +16,7 @@ const client = new Client({
 });
 
 async function send(text) {
+  console.log('Enviando mensagem')
   const chatId = process.env.RECEIVER_NUMBER + '@c.us';
   const selectedChat = await client.getChatById(chatId);
   if (!selectedChat) console.log('Chat não encontrado!');
@@ -23,6 +24,7 @@ async function send(text) {
 };
 
 async function getMessageAndSendNow() {
+  console.log('Preparando mensagem de bom dia')
   const message = getTodayMessage();
   const fact = await getTranslatedFact();
   const weather = await getWeatherMessage();
@@ -30,8 +32,9 @@ async function getMessageAndSendNow() {
 }
 
 client.on('ready', async () => {
-  console.log('Client is ready!');
+  console.log('Client is ready');
   cron.schedule('0 6 * * *', async () => {
+    console.log('Preparando mensagem de bom dia')
     const message = getTodayMessage();
     const fact = await getTranslatedFact();
     const weather = await getWeatherMessage();
@@ -40,6 +43,7 @@ client.on('ready', async () => {
 });
 
 client.on('message_create', (msg) => {
+  console.log('Mensagem recebida: ' + msg.body)
   if (msg.body === '!testapi')
     msg.reply('ok')
   if (msg.body === '!sendnow5530')
