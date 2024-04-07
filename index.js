@@ -15,9 +15,9 @@ const client = new Client({
   webVersionCache: { type: 'remote', remotePath }
 });
 
-async function send(text) {
+async function send(text, number) {
   console.log('Enviando mensagem')
-  const chatId = process.env.RECEIVER_NUMBER + '@c.us';
+  const chatId = (number || process.env.RECEIVER_NUMBER) + '@c.us';
   const selectedChat = await client.getChatById(chatId);
   if (!selectedChat) console.log('Chat não encontrado!');
   selectedChat.sendMessage(text);
@@ -29,6 +29,14 @@ async function getMessageAndSendNow() {
   const fact = await getTranslatedFact();
   const weather = await getWeatherMessage();
   send(`Curiosidade do dia: ${fact} \n\n ${weather} \n\n ${message}`);
+}
+
+async function getMessageAndSendNowForMe() {
+  console.log('Preparando mensagem de bom dia pra mim')
+  const message = getTodayMessage();
+  const fact = await getTranslatedFact();
+  const weather = await getWeatherMessage();
+  send(`Curiosidade do dia: ${fact} \n\n ${weather} \n\n ${message}`, process.env.MY_NUMBER);
 }
 
 client.on('ready', async () => {
@@ -48,6 +56,8 @@ client.on('message_create', (msg) => {
     msg.reply('ok')
   if (msg.body === '!sendnow5530')
     getMessageAndSendNow()
+  if (msg.body === '!sendnowforme5530')
+    getMessageAndSendNowForMe()
 })
 
 client.on('qr', qr => {
