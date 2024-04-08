@@ -4,8 +4,13 @@ translate.engine = "google";
 translate.key = process.env.TRANSLATE_API_KEY;
 
 async function translateMessage(message) {
-  const text = await translate(message, "pt");
-  return text;
+  try {
+    const text = await translate(message, "pt");
+    return text;
+  } catch (error) {
+    console.log(error)
+    return ""
+  }
 }
 
 export { translateMessage };
