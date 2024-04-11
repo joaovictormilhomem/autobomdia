@@ -32,7 +32,7 @@ async function getMessageAndSendNow() {
 }
 
 async function getMessageAndSendNowForMe() {
-  console.log('Preparando mensagem de bom dia pra mim')
+  console.log('Preparando mensagem de bom dia pra teste')
   const message = getTodayMessage();
   const fact = await getTranslatedFact();
   const weather = await getWeatherMessage();
@@ -42,11 +42,8 @@ async function getMessageAndSendNowForMe() {
 client.on('ready', async () => {
   console.log('Client is ready');
   cron.schedule('0 6 * * *', async () => {
-    console.log('Preparando mensagem de bom dia')
-    const message = getTodayMessage();
-    const fact = await getTranslatedFact();
-    const weather = await getWeatherMessage();
-    send(`Curiosidade do dia: ${fact} \n\n ${weather} \n\n ${message}`);
+    console.log('Mensagem automática de bom dia acionada')
+    getMessageAndSendNow()
   })
 });
 

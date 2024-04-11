@@ -1,19 +1,18 @@
 const messages = [
+  "Bom dia, meu amor! Que hoje você seja guiada pela intuição, pois você sempre diz que a sua é muito boa.",
   "Bom dia, meu amor! Espero que seu dia seja alegre como você sempre me deixa!",
   "Que este novo dia te traga oportunidades incríveis e momentos felizes. Bom dia!",
-  "Bom dia, amor! Lembre-se de tomar um café bem gostoso para começar o dia com o pé direito.",
-  "Que este amanhecer seja o prelúdio de um dia cheio de boas surpresas. Bom dia, minha querida!",
-  "Bom dia, minha princesa! Espero que seu dia seja tão lindo quanto você.",
-  "Comece o dia lembrando que cada novo amanhecer é uma nova chance de ser feliz. Bom dia, meu amor!",
+  "Bom dia, amor! Lembre-se de tomar um café bem gostoso(igual você) para começar o dia com o pé direito.",
+  "Que este amanhecer seja o prelúdio de um dia cheio de boas surpresas, como foi você pra mim, uma boa surpresa. Bom dia, minha querida!",
+  "Bom dia, minha princesa! Espero que seu dia seja tão lindo quanto você(acho difícil ele conseguir ser tão lindo assim).",
   "Bom dia, meu bem! Que cada desafio que surgir hoje seja uma oportunidade de crescimento.",
   "Que seu dia seja tão iluminado quanto seu sorriso. Bom dia, minha luz!",
   "Bom dia, meu amor! Não esqueça de se cuidar e aproveitar cada momento deste novo dia.",
-  "Que este novo dia seja repleto de energia positiva e bons pensamentos. Bom dia, minha vida!",
   "Bom dia, meu anjo! Espero que o dia te surpreenda com momentos de alegria e realização.",
   "Que hoje você encontre motivos para sorrir em cada pequeno detalhe, e eu sei que você consegue! :). Bom dia, coisa linda!",
   "Bom dia, meu amor! Que cada passo que você der hoje te aproxime um pouco mais dos seus objetivos, e se sincronizar comigo, nós andaremos iguais!",
-  "Bom dia, meu amorzinho, hoje é o dia do nosso aniverário, obrigado por tudo, estar contigo tem sido a melhor escolha que fiz na vida. Eu amo muito você!",
   "Que este dia seja leve e cheio das boas energias das forças do bem(Curupira, Iemanjá...). Bom dia, minha paixão!",
+  "Bom dia, minha namorada. Hoje é o dia que marca mais um mês do nosso compromisso, obrigado por tudo, estar contigo tem sido a melhor escolha que fiz na vida. Eu amo muito você!",
   "Bom dia, minha querida! Que hoje você encontre felicidade até nos pequenos gestos.",
   "Que este amanhecer traga toda a paz e tranquilidade que você merece. Bom dia, meu bem!",
   "Bom dia, amor! Lembre-se sempre de valorizar os momentos simples e preciosos da vida.",
@@ -31,7 +30,6 @@ const messages = [
   "Que este dia seja uma tela em branco onde você possa pintar suas melhores memórias. Bom dia, minha querida!",
   "Bom dia, meu amor! Lembre-se sempre de que estou aqui para te apoiar, sempre!.",
   "Que este amanhecer renove suas esperanças e te inspire a conquistar seus sonhos. Bom dia <3!",
-  "Bom dia, meu amor! Que hoje você seja guiada pela intuição, pois você sempre diz que a sua é muito boa.",
 ]
 
 function getTodayMessage() {
