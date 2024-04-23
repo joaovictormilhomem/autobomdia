@@ -1,6 +1,6 @@
 import { translateMessage } from './translate.js';
 
-const factsApiUrl = 'https://api.api-ninjas.com/v1/facts?limit=1';
+const factsApiUrl = 'https://api.api-ninjas.com/v1/facts';
 
 async function getTranslatedFact() {
 	try {
