@@ -9,10 +9,11 @@ import dotenv from 'dotenv'; dotenv.config();
 console.log('Iniciando o bot...')
 
 const { Client, LocalAuth } = whatsapp;
-const remotePath = 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html';
+// const remotePath = 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html';
 const client = new Client({
   authStrategy: new LocalAuth({ dataPath: "sessions", }),
-  webVersionCache: { type: 'remote', remotePath }
+  // restartOnAuthFail: true,
+  // webVersionCache: { type: 'remote', remotePath }
 });
 
 async function send(text, number) {
