@@ -9,11 +9,8 @@ import dotenv from 'dotenv'; dotenv.config();
 console.log('Iniciando o bot...')
 
 const { Client, LocalAuth } = whatsapp;
-// const remotePath = 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html';
 const client = new Client({
   authStrategy: new LocalAuth({ dataPath: "sessions", }),
-  // restartOnAuthFail: true,
-  // webVersionCache: { type: 'remote', remotePath }
 });
 
 async function send(text, number) {
@@ -41,8 +38,8 @@ async function getMessageAndSendNowForMe() {
 }
 
 client.on('ready', async () => {
-  console.log('Client is ready');
-  cron.schedule('0 6 * * *', async () => {
+  console.log('Bot iniciado');
+  cron.schedule('0 8 * * *', async () => {
     console.log('Mensagem automática de bom dia acionada')
     getMessageAndSendNow()
   })
